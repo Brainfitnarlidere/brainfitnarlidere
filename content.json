@@ -30,17 +30,14 @@
     "Dikkat eksikliği nedeniyle bildiği halde yanlış yapıyor"
   ],
   "programs": [
-    {"name": "Baby", "ages": "0-3 yaş", "benefits": ["Erken beyin gelişimi uyarımı", "Duyusal motor beceriler", "Ebeveyn rehberliği", "Dil gelişimi"], "cta": "Baby Başlat"},
-    {"name": "Scholar", "ages": "3-99 yaş", "benefits": ["Dikkat eksikliği / dağınıklığı", "Okuduğunu anlama & hız", "Odak süresi + sınav kaygısı yönetimi", "Ev ödevinde bağımsızlık", "Dikkat gelişimi"], "cta": "Scholar Planla"},
-    {"name": "Senior", "ages": "14-99 yaş", "benefits": ["Verimli çalışma rutini", "Bellek ve bilişsel esneklik", "Akademik/iş performans takibi"], "cta": "Senior Başlat"},
-    {"name": "Disleksi", "ages": "6-18 yaş", "benefits": ["Harflere-duyusal eşleştirme", "Okuma akıcılığı & heceleme", "Özgüven ve motivasyon"], "cta": "Disleksi Destek"},
-    {"name": "English", "ages": "7-18 yaş", "benefits": ["Dinleme ve telafuz hassasiyeti", "Kelime belleği", "Akıcı konuşma oyunları"], "cta": "English Başlat"}
+    {"name": "Brainfit Baby Programı", "ages": "0-3 yaş", "benefits": ["Erken beyin gelişimi uyarımı", "Duyusal motor beceriler", "Motor beceri gelişimi", "Ebeveyn rehberliği", "Dil gelişimi"], "cta": "Bilgi Al"},
+    {"name": "Brainfit Scholar Programı", "ages": "4-99 yaş", "benefits": ["Dikkat eksikliği çözümü", "Okuduğunu anlama & hız", "Odaklanma süresi + sınav kaygısı yönetiminde artış", "Ev ödevinde bağımsızlık", "Dikkat ve Odaklanma Gelişimi"], "cta": "Bilgi Al"}
   ],
   "process": [
-    "Zihin Check-Up: dikkat, motor, duygusal & işitsel/görsel tarama",
-    "Kişisel egzersiz planı: 4 aylık, haftada 2 seans birebir + ev çalışması",
-    "Koç eşliğinde takip ve haftalık geri bildirim",
-    "Ölçme-değerlendirme ve sürdürülebilir alışkanlıklar"
+    "Zihin Check-Up: <br>dikkat, motor, duygusal & işitsel/görsel tarama",
+    "Kişisel egzersiz planı: 4 aylık, haftada 2 seans",
+    "Takip ve haftalık geri bildirim",
+    "Ölçme - değerlendirme ve gözle görülür değişimler"
   ],
   "faq": [
     {"q": "Çocuğum neden derslerde motivasyonsuz görünüyor?", "a": "Sıklıkla başarısızlık korkusu, dikkat/ hafıza zayıflıkları veya ekran kaynaklı bilişsel yorgunluk rol oynar; önce kök nedeni görmek için bilişsel profil çıkarıyoruz."},
@@ -51,7 +48,7 @@
     {"q": "Utangaç çocuk okulda zorlanır mı?", "a": "Zorunlu değil; sosyal rol oyunları, hikâye anlatma ve duygu kelime hazinesi çalışmaları adaptasyonu hızlandırır."}
   ],
   "contact": {
-    "phone": "0552 552 84 85",
+    "phone": "+90 552 552 84 85",
     "email": "bfnarlidere@gmail.com",
     "address": "Yenikal mah. Baran sk. No:20 Kat:5 D:5 Narlıdere / İZMİR",
     "map": "https://maps.google.com/?q=Yenikal+mah.+Baran+sk.+No:20+Kat:5+D:5+Narlidere+Izmir",
