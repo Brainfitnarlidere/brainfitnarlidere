@@ -1,0 +1,60 @@
+{
+  "brand": "BrainFit Studio",
+  "tagline": "Harvard onaylı nörobilimle öğrenme performansını 4 ayda hızlandırın.",
+  "hero": {
+    "headline": "Zihin Check-Up: Dikkat ve hafızayı keşfet, nörobilimle geliştir",
+    "subhead": "Beyin performans profilinizi çıkarın, 4 aylık kişisel egzersiz planıyla dikkat, dürtü kontrolü ve özgüveni yükseltin. 160.000+ katılımcı başarısı.",
+    "cta_primary": "Ücretsiz Danışmanlık Randevusu Planla",
+    "cta_secondary": "Programları İncele"
+  },
+  "social": {
+    "badges": ["Harvard & Stanford Onaylı Egzersizler", "160.000+ katılımcı", "20+ yıllık deneyim", "İzmir merkezli uzman ekip"],
+    "quotes": [
+      {"text": "Oğlumun dikkati 6. haftada belirgin şekilde arttı; öğretmeni fark etti.", "name": "Ayşe K.", "role": "İlkokul velisi"},
+      {"text": "Üniversite sınavı hazırlığında odak sürem 2 katına çıktı.", "name": "Mert D.", "role": "12. sınıf öğrenci"},
+      {"text": "Disleksi desteği sayesinde okuma hızı ve özgüveni gözle görülür şekilde yükseldi.", "name": "Selin T.", "role": "5. sınıf velisi"},
+      {"text": "Online seanslarla bile oğlumun planlama becerileri ve hafızası belirginleşti.", "name": "Mehmet A.", "role": "8. sınıf velisi"},
+      {"text": "İşitme hassasiyeti olan kızım için kişiselleştirilmiş egzersizler büyük rahatlık sağladı.", "name": "Derya L.", "role": "Lise velisi"},
+      {"text": "Koçumuz haftalık geri bildirimlerle bizi çok iyi yönlendirdi; kaygı seviyesi düştü.", "name": "Burcu E.", "role": "11. sınıf velisi"},
+      {"text": "Haftada iki seansla odaklanma süresi uzadı, ödevlere direnç azaldı.", "name": "İlker S.", "role": "4. sınıf velisi"},
+      {"text": "Dikkat egzersizleri sonrası sınavda süre yönetimi çok iyileşti.", "name": "Gizem Y.", "role": "YKS velisi"},
+      {"text": "Küçük yaşta başladık, el-göz koordinasyonu ve dil gelişimi hızlandı.", "name": "Esra B.", "role": "Okul öncesi velisi"},
+      {"text": "Takip raporları sayesinde evde ne yapacağımızı net biliyoruz; süreç şeffaf.", "name": "Hakan T.", "role": "7. sınıf velisi"}
+    ]
+  },
+  "problems": [
+    "Ders çalışırken hızla dikkat dağılıyor",
+    "Okuduğunu anlamada ve hafızada zorluk",
+    "Sınav ve sunumlarda stres/özgüven sorunu",
+    "Psikomotor koordinasyon ve el yazısı güçlüğü",
+    "Dikkat eksikliği nedeniyle bildiği halde yanlış yapıyor"
+  ],
+  "programs": [
+    {"name": "Baby", "ages": "0-3 yaş", "benefits": ["Erken beyin gelişimi uyarımı", "Duyusal motor beceriler", "Ebeveyn rehberliği", "Dil gelişimi"], "cta": "Baby Başlat"},
+    {"name": "Scholar", "ages": "3-99 yaş", "benefits": ["Dikkat eksikliği / dağınıklığı", "Okuduğunu anlama & hız", "Odak süresi + sınav kaygısı yönetimi", "Ev ödevinde bağımsızlık", "Dikkat gelişimi"], "cta": "Scholar Planla"},
+    {"name": "Senior", "ages": "14-99 yaş", "benefits": ["Verimli çalışma rutini", "Bellek ve bilişsel esneklik", "Akademik/iş performans takibi"], "cta": "Senior Başlat"},
+    {"name": "Disleksi", "ages": "6-18 yaş", "benefits": ["Harflere-duyusal eşleştirme", "Okuma akıcılığı & heceleme", "Özgüven ve motivasyon"], "cta": "Disleksi Destek"},
+    {"name": "English", "ages": "7-18 yaş", "benefits": ["Dinleme ve telafuz hassasiyeti", "Kelime belleği", "Akıcı konuşma oyunları"], "cta": "English Başlat"}
+  ],
+  "process": [
+    "Zihin Check-Up: dikkat, motor, duygusal & işitsel/görsel tarama",
+    "Kişisel egzersiz planı: 4 aylık, haftada 2 seans birebir + ev çalışması",
+    "Koç eşliğinde takip ve haftalık geri bildirim",
+    "Ölçme-değerlendirme ve sürdürülebilir alışkanlıklar"
+  ],
+  "faq": [
+    {"q": "Çocuğum neden derslerde motivasyonsuz görünüyor?", "a": "Sıklıkla başarısızlık korkusu, dikkat/ hafıza zayıflıkları veya ekran kaynaklı bilişsel yorgunluk rol oynar; önce kök nedeni görmek için bilişsel profil çıkarıyoruz."},
+    {"q": "İçsel ve dışsal motivasyon farkı ne?", "a": "İçsel motivasyon merak ve öğrenme isteğinden, dışsal motivasyon ödül/not gibi etkenlerden gelir; dengesi kalıcı başarı sağlar."},
+    {"q": "İlkokula hazır mı, nasıl anlarım?", "a": "Rutinleri takip edebilme, duygularını yönetme, kısa süre odaklanma ve akran iletişimi temel göstergelerdir; emin değilseniz CognitiveMAP ile netleştiriyoruz."},
+    {"q": "Okula hazırlığa ne zaman başlamalıyım?", "a": "Okul öncesi yıllar en verimli dönem; BrainFit Baby ve Scholar programları oyun temelli nöro-egzersizlerle temeli güçlendirir."},
+    {"q": "CognitiveMAP nedir?", "a": "Görsel, işitsel, dikkat-hafıza, sensori-motor ve duygu düzenleme alanlarında beyin performans haritası çıkarır, kişiselleştirilmiş planı belirler."},
+    {"q": "Utangaç çocuk okulda zorlanır mı?", "a": "Zorunlu değil; sosyal rol oyunları, hikâye anlatma ve duygu kelime hazinesi çalışmaları adaptasyonu hızlandırır."}
+  ],
+  "contact": {
+    "phone": "0552 552 84 85",
+    "email": "bfnarlidere@gmail.com",
+    "address": "Yenikal mah. Baran sk. No:20 Kat:5 D:5 Narlıdere / İZMİR",
+    "map": "https://maps.google.com/?q=Yenikal+mah.+Baran+sk.+No:20+Kat:5+D:5+Narlidere+Izmir",
+    "whatsapp": "https://wa.me/905525528485"
+  }
+}
