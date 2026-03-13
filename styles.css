@@ -241,14 +241,14 @@ section { padding: 60px 6vw; }
   align-items: center;
   gap: 16px;
   cursor: default;
-  width: 110%;
+  width: 100%;
 }
 
 /* Staggered offsets for an "intertwined" feel */
-.pill:nth-child(1) { transform: translateX(-20px); }
-.pill:nth-child(2) { transform: translateX(20px); z-index: 4; }
-.pill:nth-child(3) { transform: translateX(-10px); }
-.pill:nth-child(4) { transform: translateX(30px); z-index: 4; }
+.pill:nth-child(1) { transform: translateX(-10px); }
+.pill:nth-child(2) { transform: translateX(10px); z-index: 4; }
+.pill:nth-child(3) { transform: translateX(-5px); }
+.pill:nth-child(4) { transform: translateX(15px); z-index: 4; }
 .pill:nth-child(5) { transform: translateX(0px); }
 
 .pill:hover {
@@ -288,6 +288,7 @@ section { padding: 60px 6vw; }
   .pill { width: 100%; transform: none !important; }
   .problem-image { margin-left: 0; margin-top: 40px; }
   .problem .problem-content { grid-template-columns: 1fr; }
+  .problem { padding: 60px 6vw; }
 }
 
 .programs {
@@ -426,7 +427,7 @@ section { padding: 60px 6vw; }
 
 .process-steps { 
   display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 24px; 
   list-style: none; 
   padding: 0; 
@@ -669,10 +670,28 @@ input:-webkit-autofill, textarea:-webkit-autofill {
 @media (max-width: 720px) {
   .nav-actions { display: none; }
   .cta-card { padding: 18px; }
-  .floating-wa { bottom: 20px; right: 20px; width: 56px; height: 56px; }
-  .floating-phone { bottom: 90px; right: 20px; width: 56px; height: 56px; }
+  .floating-wa { bottom: 20px; right: 15px; width: 56px; height: 56px; }
+  .floating-phone { bottom: 85px; right: 15px; width: 56px; height: 56px; }
   .process-steps { gap: 12px; }
-  .process-steps li { padding: 20px 12px; }
+  .process-steps li { padding: 20px 12px; border-radius: 20px; }
   .process-icon { width: 80px; height: 80px; border-radius: 20px; }
   .process-steps li h3, .process-text { font-size: 16px; line-height: 1.3; }
+  .hero-copy h1 { font-size: 32px; }
+  .hero-copy .lede { font-size: 18px; }
+  .section-header h2 { font-size: 36px; }
+  .section-header p { font-size: 18px; }
+  .cta-card h2 { font-size: 32px; }
+  .cta-card p:not(.eyebrow) { font-size: 18px; }
+  .different-approach h2 { font-size: 32px; }
+  .testimonial-copy p { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 24px 4vw 48px; }
+  .stats-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .stat strong { font-size: 28px; }
+  .pill { padding: 16px 20px; font-size: 16px; }
+  .program { padding: 24px; }
+  .program h3 { font-size: 24px; }
+  .program li { font-size: 16px; }
 }
