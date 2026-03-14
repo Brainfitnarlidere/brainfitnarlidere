@@ -117,7 +117,7 @@
   <!-- Video 1: BrainFit tanıtım -->
   <section class="video-section video-hero">
     <div class="section-header">
-      <h2>BrainFit’i Keşfedin</h2>
+      <h2>BrainFit'i Keşfedin</h2>
       <p>Programımızı kısa videodan izleyin.</p>
     </div>
     <a class="video-thumb" href="https://www.youtube.com/watch?v=nnNlBuH7RwI" target="_blank" rel="noopener" aria-label="BrainFit tanıtım videosunu YouTube'da izle">
@@ -136,7 +136,7 @@
       <img src="images/testimonial-mom.webp" alt="BrainFit velisi ve çocuğu" loading="lazy">
     </div>
     <div class="testimonial-copy" id="testimonialCopy">
-      <div class="quote-icon">“</div>
+      <div class="quote-icon">"</div>
       <p id="testimonialText">
         Brainfit ailesiyle tanışmamız nasıl oldu biliyor musunuz? Oğlum 4 yaşındaydı...
       </p>
@@ -189,7 +189,7 @@
       <form method="POST" action="https://formspree.io/f/mlgplvqk" id="leadForm">
         <div class="form-grid">
           <label>Ad Soyad<input name="name" required placeholder="Adınız" /></label>
-          <label>Telefon<input id="phoneInput" name="phone" required placeholder="05xx xxx xx xx" maxlength="14" /></label>
+          <label>Telefon<input id="phoneInput" name="phone" type="tel" required placeholder="05xx xxx xx xx" maxlength="14" /></label>
           <label>E-posta<input type="email" name="email" placeholder="ornek@mail.com" /></label>
           <label>Şehir<input name="city" placeholder="İzmir" /></label>
           <label>Kimin için?
@@ -203,16 +203,15 @@
         <div class="consent-stack">
           <label class="consent kvkk-consent">
             <input type="checkbox" name="kvkk" required />
-            <span class="consent-text"><a href="https://brainfit.com.tr/kvkk/" target="_blank" rel="noopener" class="consent-link">KVKK Metni</a>’ni okudum; <span class="consent-plain">verilerimin randevu planlama ve bilgilendirme amacıyla işlenmesini onaylıyorum.</span></span>
+            <span class="consent-text"><a href="https://brainfit.com.tr/kvkk/" target="_blank" rel="noopener" class="consent-link">KVKK Metni</a>'ni okudum; <span class="consent-plain">verilerimin randevu planlama ve bilgilendirme amacıyla işlenmesini onaylıyorum.</span></span>
           </label>
           <label class="consent">
             <input type="checkbox" name="kvkk_notice" required />
-            <span class="consent-text"><a href="https://brainfit.com.tr/gizlilik-politikasi-2/" target="_blank" rel="noopener" class="consent-link">Gizlilik Politikası</a>‘nı ve içerisinde bulunan aydınlatma metnini okudum ve kabul ediyorum.</span>
+            <span class="consent-text"><a href="https://brainfit.com.tr/gizlilik-politikasi-2/" target="_blank" rel="noopener" class="consent-link">Gizlilik Politikası</a>'nı ve içerisinde bulunan aydınlatma metnini okudum ve kabul ediyorum.</span>
           </label>
         </div>
         <button class="primary block" type="submit">Formu Gönder</button>
         <p class="form-hint">Verileriniz gizli tutulur</p>
-        <form method="POST" action="https://formspree.io/f/YOUR_FORM_ID" id="leadForm" onsubmit="handleFormSubmit(event)">
       </form>
       <div class="thankyou" id="thankyou" hidden>
         <h3>Harika!</h3>
@@ -229,7 +228,7 @@
     <div class="modal">
       <button class="modal-close" id="modalClose" aria-label="Kapat">×</button>
       <p class="eyebrow">Hediye: Ücretsiz PDF</p>
-      <h3>Dikkat Geliştirme Egzersiz Kitabı’nı Ücretsiz İndirin</h3>
+      <h3>Dikkat Geliştirme Egzersiz Kitabı'nı Ücretsiz İndirin</h3>
       <p class="lede">E-postanızı bırakın, evde kolayca uygulayabileceğiniz dikkat geliştirme egzersiz kitabını anında PDF olarak gönderelim.</p>
       <form id="emailCaptureForm">
         <label>E-posta Adresiniz
