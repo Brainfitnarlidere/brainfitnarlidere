@@ -210,35 +210,42 @@ async function handleLead(e) {
     return;
   }
   const submitBtn = form.querySelector('button[type="submit"]');
-  const originalBtnText = submitBtn.textContent;
-
+  async function handleLead(e) {
+  e.preventDefault();
+  const form = e.target;
+  const payload = Object.fromEntries(new FormData(form).entries());
+  const consentBox = form.querySelector('input[name="kvkk"]');
+  const consentLabel = consentBox?.closest('.consent');
+  if (consentLabel) consentLabel.classList.remove('error');
+  const consentBox2 = form.querySelector('input[name="kvkk_notice"]');
+  const consentLabel2 = consentBox2?.closest('.consent');
+  if (consentLabel2) consentLabel2.classList.remove('error');
+  if (!consentBox?.checked || !consentBox2?.checked) {
+    if (consentLabel) consentLabel.classList.add('error');
+    if (consentLabel2) consentLabel2.classList.add('error');
+    alert('Lütfen KVKK ve Aydınlatma onaylarını işaretleyin.');
+    return;
+  }
+  if (!payload.phone || payload.phone.replace(/\D/g, '').length !== 11) {
+    alert('Lütfen 11 haneli telefon numaranızı (05xx ...) girin.');
+    return;
+  }
+  const submitBtn = form.querySelector('button[type="submit"]');
+  
   try {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Gönderiliyor...';
-
-    const res = await fetch('/lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
     
-    if (!res.ok) {
-      const errorData = await res.json().catch(() => ({}));
-      throw new Error(errorData.error || 'Sunucu hatası');
-    }
-
-    form.hidden = true; // Formu gizle
-    document.getElementById('thankyou').hidden = false; // Teşekkür mesajını göster
+    // Form'u HTML action'ı ile submit et (Google Apps Script'e gider)
+    form.submit();
+    
   } catch (err) {
     console.error('Lead error:', err);
     alert('Hata: ' + err.message + '\nLütfen tekrar deneyin.');
-    
-    // Restore button ONLY on error
     submitBtn.disabled = false;
-    submitBtn.textContent = originalBtnText;
+    submitBtn.textContent = 'Formu Gönder';
   }
 }
-
 // Video Playback Enhancement
 document.querySelectorAll('.video-thumb').forEach(thumb => {
   thumb.addEventListener('click', function(e) {
@@ -376,3 +383,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 loadContent();
+
+  function handleLead(event) {
+    event.preventDefault();
+    var form = event.target;
+    form.submit(); // Sends form data directly to the action specified in the HTML form
+}
