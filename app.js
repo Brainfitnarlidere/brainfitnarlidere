@@ -305,7 +305,7 @@ async function handleEmailCapture(e) {
   }
 }
 
-document.getElementById('leadForm').addEventListener('submit', handleLead);
+//document.getElementById('leadForm').addEventListener('submit', handleLead);
 const phoneInput = document.getElementById('phoneInput');
 
 function formatPhone(value) {
@@ -384,8 +384,42 @@ window.addEventListener('DOMContentLoaded', () => {
 
 loadContent();
 
-  function handleLead(event) {
-    event.preventDefault();
-    var form = event.target;
-    form.submit(); // Sends form data directly to the action specified in the HTML form
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const payload = new FormData(form);
+  
+  // Validasyon
+  const consentBox = form.querySelector('input[name="kvkk"]');
+  const consentBox2 = form.querySelector('input[name="kvkk_notice"]');
+  
+  if (!consentBox?.checked || !consentBox2?.checked) {
+    alert('Lütfen KVKK ve Aydınlatma onaylarını işaretleyin.');
+    return;
+  }
+  
+  if (!form.phone.value || form.phone.value.replace(/\D/g, '').length !== 11) {
+    alert('Lütfen 11 haneli telefon numaranızı (05xx ...) girin.');
+    return;
+  }
+  
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Gönderiliyor...';
+  
+  // Formspree'ye gönder
+  fetch(form.action, {
+    method: 'POST',
+    body: payload,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(() => {
+    form.hidden = true;
+    document.getElementById('thankyou').hidden = false;
+  })
+  .catch(err => {
+    alert('Hata: ' + err.message);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Formu Gönder';
+  });
 }
