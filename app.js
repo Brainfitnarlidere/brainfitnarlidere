@@ -308,6 +308,8 @@ async function handleEmailCapture(e) {
 //document.getElementById('leadForm').addEventListener('submit', handleLead);
 const phoneInput = document.getElementById('phoneInput');
 
+const phoneInput = document.getElementById('phoneInput');
+
 function formatPhone(value) {
   const d = value.replace(/\D/g, '').slice(0, 11);
   const p1 = d.slice(0, 4); // 05xx
