@@ -45,13 +45,13 @@ const FALLBACK = {
   ]
 };
 
+// ===== CONTENT LOADING =====
 async function loadContent() {
   try {
     const res = await fetch('./content.json');
     if (!res.ok) throw new Error('Content fetch failed');
     const data = await res.json();
     
-    // Güvenli yükleme dizisi
     if (data.social?.badges) hydrateBadges(data.social.badges);
     if (data.social?.quotes) hydrateQuotes(data.social.quotes);
     if (data.problems) hydrateProblems(data.problems);
@@ -92,7 +92,7 @@ function hydrateQuotes(quotes) {
   quotes.forEach(q => {
     const div = document.createElement('div');
     div.className = 'quote';
-    div.innerHTML = `<p>“${q.text}”</p><div class="name">${q.name}</div><div class="role">${q.role}</div>`;
+    div.innerHTML = `<p>"${q.text}"</p><div class="name">${q.name}</div><div class="role">${q.role}</div>`;
     grid.appendChild(div);
   });
 }
@@ -189,91 +189,66 @@ function hydrateDatalist(programs) {
   });
 }
 
-async function handleLead(e) {
+// ===== PHONE FORMATTING =====
+function formatPhone(value) {
+  const d = value.replace(/\D/g, '').slice(0, 11);
+  const p1 = d.slice(0, 4); // 05xx
+  const p2 = d.slice(4, 7);
+  const p3 = d.slice(7, 9);
+  const p4 = d.slice(9, 11);
+  return [p1, p2, p3, p4].filter(Boolean).join(' ').trim();
+}
+
+// ===== FORM SUBMISSION =====
+function handleFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
-  const payload = Object.fromEntries(new FormData(form).entries());
-  const consentBox = form.querySelector('input[name="kvkk"]');
-  const consentLabel = consentBox?.closest('.consent');
-  if (consentLabel) consentLabel.classList.remove('error');
-  const consentBox2 = form.querySelector('input[name="kvkk_notice"]');
-  const consentLabel2 = consentBox2?.closest('.consent');
-  if (consentLabel2) consentLabel2.classList.remove('error');
-  if (!consentBox?.checked || !consentBox2?.checked) {
-    if (consentLabel) consentLabel.classList.add('error');
-    if (consentLabel2) consentLabel2.classList.add('error');
-    alert('Lütfen KVKK ve Aydınlatma onaylarını işaretleyin.');
-    return;
-  }
-  if (!payload.phone || payload.phone.replace(/\D/g, '').length !== 11) {
-    alert('Lütfen 11 haneli telefon numaranızı (05xx ...) girin.');
-    return;
-  }
-  const submitBtn = form.querySelector('button[type="submit"]');
-  async function handleLead(e) {
-  e.preventDefault();
-  const form = e.target;
-  const payload = Object.fromEntries(new FormData(form).entries());
-  const consentBox = form.querySelector('input[name="kvkk"]');
-  const consentLabel = consentBox?.closest('.consent');
-  if (consentLabel) consentLabel.classList.remove('error');
-  const consentBox2 = form.querySelector('input[name="kvkk_notice"]');
-  const consentLabel2 = consentBox2?.closest('.consent');
-  if (consentLabel2) consentLabel2.classList.remove('error');
-  if (!consentBox?.checked || !consentBox2?.checked) {
-    if (consentLabel) consentLabel.classList.add('error');
-    if (consentLabel2) consentLabel2.classList.add('error');
-    alert('Lütfen KVKK ve Aydınlatma onaylarını işaretleyin.');
-    return;
-  }
-  if (!payload.phone || payload.phone.replace(/\D/g, '').length !== 11) {
-    alert('Lütfen 11 haneli telefon numaranızı (05xx ...) girin.');
-    return;
-  }
-  const submitBtn = form.querySelector('button[type="submit"]');
   
-  try {
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Gönderiliyor...';
-    
-    // Form'u HTML action'ı ile submit et (Google Apps Script'e gider)
-    form.submit();
-    
-  } catch (err) {
-    console.error('Lead error:', err);
+  // Validasyon: KVKK onayları
+  const consentBox = form.querySelector('input[name="kvkk"]');
+  const consentBox2 = form.querySelector('input[name="kvkk_notice"]');
+  
+  if (!consentBox?.checked || !consentBox2?.checked) {
+    alert('Lütfen KVKK ve Aydınlatma onaylarını işaretleyin.');
+    return;
+  }
+  
+  // Validasyon: Telefon numarası
+  if (!form.phone.value || form.phone.value.replace(/\D/g, '').length !== 11) {
+    alert('Lütfen 11 haneli telefon numaranızı (05xx ...) girin.');
+    return;
+  }
+  
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Gönderiliyor...';
+  
+  // FormData oluştur
+  const formData = new FormData(form);
+  
+  // Formspree'ye gönder
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      form.hidden = true;
+      document.getElementById('thankyou').hidden = false;
+    } else {
+      throw new Error('Sunucu hatası');
+    }
+  })
+  .catch(err => {
+    console.error('Form error:', err);
     alert('Hata: ' + err.message + '\nLütfen tekrar deneyin.');
     submitBtn.disabled = false;
     submitBtn.textContent = 'Formu Gönder';
-  }
-}
-// Video Playback Enhancement
-document.querySelectorAll('.video-thumb').forEach(thumb => {
-  thumb.addEventListener('click', function(e) {
-    e.preventDefault();
-    const videoUrl = this.getAttribute('href');
-    
-    // Robust video ID extraction
-    let videoId = '';
-    const match = videoUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:v\/|u\/\w\/|embed\/|watch\?v=))([^#&?]*)/);
-    if (match && match[1].length === 11) {
-      videoId = match[1];
-    }
-    
-    if (!videoId) return;
-
-    // Simplified standard embed structure
-    this.innerHTML = `
-      <iframe 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"
-        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    `;
   });
-});
+}
 
+// ===== EMAIL MODAL =====
 function showEmailModal() {
   const modal = document.getElementById('emailModal');
   if (!modal) return;
@@ -305,28 +280,35 @@ async function handleEmailCapture(e) {
   }
 }
 
-//document.getElementById('leadForm').addEventListener('submit', handleLead);
-const phoneInput = document.getElementById('phoneInput');
+// ===== VIDEO EMBED =====
+document.querySelectorAll('.video-thumb').forEach(thumb => {
+  thumb.addEventListener('click', function(e) {
+    e.preventDefault();
+    const videoUrl = this.getAttribute('href');
+    
+    let videoId = '';
+    const match = videoUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:v\/|u\/\w\/|embed\/|watch\?v=))([^#&?]*)/);
+    if (match && match[1].length === 11) {
+      videoId = match[1];
+    }
+    
+    if (!videoId) return;
 
-const phoneInput = document.getElementById('phoneInput');
-
-function formatPhone(value) {
-  const d = value.replace(/\D/g, '').slice(0, 11);
-  const p1 = d.slice(0, 4); // 05xx
-  const p2 = d.slice(4, 7);
-  const p3 = d.slice(7, 9);
-  const p4 = d.slice(9, 11);
-  return [p1, p2, p3, p4].filter(Boolean).join(' ').trim();
-}
-
-phoneInput?.addEventListener('input', (ev) => {
-  const pos = ev.target.selectionStart;
-  const formatted = formatPhone(ev.target.value);
-  ev.target.value = formatted;
-  ev.target.setSelectionRange(formatted.length, formatted.length);
+    this.innerHTML = `
+      <iframe 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    `;
+  });
 });
 
+// ===== DOM READY =====
 window.addEventListener('DOMContentLoaded', () => {
+  // Email modal
   if (!localStorage.getItem(EMAIL_KEY)) {
     setTimeout(showEmailModal, 600);
   }
@@ -335,6 +317,18 @@ window.addEventListener('DOMContentLoaded', () => {
   emailForm?.addEventListener('submit', handleEmailCapture);
   modalClose?.addEventListener('click', hideEmailModal);
 
+  // Lead form - Formspree gönderimi
+  const leadForm = document.getElementById('leadForm');
+  leadForm?.addEventListener('submit', handleFormSubmit);
+
+  // Phone formatting
+  const phoneInput = document.getElementById('phoneInput');
+  phoneInput?.addEventListener('input', (ev) => {
+    const formatted = formatPhone(ev.target.value);
+    ev.target.value = formatted;
+    ev.target.setSelectionRange(formatted.length, formatted.length);
+  });
+
   // Testimonial slider
   const testimonials = [
     {
@@ -342,10 +336,11 @@ window.addEventListener('DOMContentLoaded', () => {
       author: 'Bayan MD, 11 yaşındaki çocuğun annesi.'
     },
     {
-      text: `Brainfit’le tanıştığımızda kızım ilkokuldaydı. Akademik ve sosyal açıdan sıkıntılar yaşıyorduk. Brainfit ile birlikte çok yol katettik. Brainfit’in bize ilk kazandırdığı şey sorumluluk. Kızımı daha önce derslerine oturtamazken Brainfit’ten sonra derslerini yapmadan uyumaz oldu farkındalığı arttı. Şimdi 6. sınıfa geçti matematik en sevdiği dersler arasında. Brainfit + Aile = Mutlu Başarılı Çocuk 🤗 Teşekkürler Brainfit Ailesi sizi seviyoruz ❤️`,
+      text: `Brainfit'le tanıştığımızda kızım ilkokuldaydı. Akademik ve sosyal açıdan sıkıntılar yaşıyorduk. Brainfit ile birlikte çok yol katettik. Brainfit'in bize ilk kazandırdığı şey sorumluluk. Kızımı daha önce derslerine oturtamazken Brainfit'ten sonra derslerini yapmadan uyumaz oldu farkındalığı arttı. Şimdi 6. sınıfa geçti matematik en sevdiği dersler arasında. Brainfit + Aile = Mutlu Başarılı Çocuk 🤗 Teşekkürler Brainfit Ailesi sizi seviyoruz ❤️`,
       author: 'Bayan FS, 11 yaşındaki çocuğun annesi.'
     }
   ];
+  
   let tIndex = 0;
   const tText = document.getElementById('testimonialText');
   const tAuthor = document.getElementById('testimonialAuthor');
@@ -385,43 +380,3 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 loadContent();
-
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const payload = new FormData(form);
-  
-  // Validasyon
-  const consentBox = form.querySelector('input[name="kvkk"]');
-  const consentBox2 = form.querySelector('input[name="kvkk_notice"]');
-  
-  if (!consentBox?.checked || !consentBox2?.checked) {
-    alert('Lütfen KVKK ve Aydınlatma onaylarını işaretleyin.');
-    return;
-  }
-  
-  if (!form.phone.value || form.phone.value.replace(/\D/g, '').length !== 11) {
-    alert('Lütfen 11 haneli telefon numaranızı (05xx ...) girin.');
-    return;
-  }
-  
-  const submitBtn = form.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Gönderiliyor...';
-  
-  // Formspree'ye gönder
-  fetch(form.action, {
-    method: 'POST',
-    body: payload,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(() => {
-    form.hidden = true;
-    document.getElementById('thankyou').hidden = false;
-  })
-  .catch(err => {
-    alert('Hata: ' + err.message);
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Formu Gönder';
-  });
-}
