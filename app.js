@@ -243,27 +243,16 @@ async function handleFormSubmit(e) {
         .insert([payload]);
 
       if (error) {
-        console.error('Supabase save error:', error);
-        // We continue anyway so Formspree can act as a fallback/notification
+        throw error;
       }
-    }
-
-    // 2. Send to Formspree (Keep for email notifications)
-    const formData = new FormData(form);
-    const formspreePromise = fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    const formspreeRes = await formspreePromise;
-
-    if (formspreeRes && formspreeRes.ok) {
-      form.hidden = true;
-      document.getElementById('thankyou').hidden = false;
     } else {
-      throw new Error('Form gönderimi sırasında bir sorun oluştu.');
+      throw new Error('Supabase client not initialized');
     }
+
+    // Success
+    form.hidden = true;
+    document.getElementById('thankyou').hidden = false;
+    
   } catch (err) {
     console.error('Form error:', err);
     alert('Hata: ' + err.message + '\nLütfen tekrar deneyin.');
