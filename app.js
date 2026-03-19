@@ -49,14 +49,63 @@ var SITE_DATA = {
 var TESTIMONIALS = [
   { 
     text: "Brainfit ailesiyle tanışmamız nasıl oldu biliyor musunuz? Oğlum 4 yaşındaydı. Hayatımızdaki dönüm noktalarından... Çocuğunu isteyerek doğurup dünyaya getiren anneler, çocuklarına çok emek verirler. Çocuğunuz küçükken ona yapacağınız dokunuşlarla ne kadar ileriye gideceğine tanık oluyorsunuz. İşte bunların en başında geliyor Brainfit ailesi. İyi ki varsınız. İyi ki sizleri tanıdım. Oğlum şimdi burslu bir okulda okuyor. Tam 11 yaşında. Teşekkürler.", 
-    name: "Bayan MD", 
+    name: "Mediha D.", 
     role: "11 yaşındaki çocuğun annesi." 
   },
   { 
     text: "Brainfit’le tanıştığımızda kızım ilkokuldaydı. Akademik ve sosyal açıdan sıkıntılar yaşıyorduk. Brainfit ile birlikte çok yol katettik. Brainfit’in bize ilk kazandırdığı şey sorumluluk. Kızımı daha önce derslerine oturtamazken Brainfit’ten sonra derslerini yapmadan uyumaz oldu farkındalığı arttı. Şimdi 6. sınıfa geçti matematik en sevdiği dersler arasında. Brainfit + Aile = Mutlu Başarılı Çocuk 🤗 Teşekkürler Brainfit Ailesi sizi seviyoruz ❤️", 
-    name: "Bayan FS", 
+    name: "Fatoş S.", 
     role: "İlkokul velisi" 
-  }
+  },
+  { 
+    text: "Oğlumun dikkati 6. haftada belirgin şekilde arttı; öğretmeni fark etti.", 
+    name: "Ayşe K.", 
+    role: "İlkokul velisi" 
+  },
+  { text: "Üniversite sınavı hazırlığında odak sürem 2 katına çıktı.", 
+   name: "Mert D.", 
+   role: "12. sınıf öğrenci" 
+  },
+  { 
+    text: "Disleksi desteği sayesinde okuma hızı ve özgüveni gözle görülür şekilde yükseldi.", 
+    name: "Selin T.", 
+    role: "5. sınıf velisi" 
+  },
+  { 
+    text: "Online seanslarla bile oğlumun planlama becerileri ve hafızası belirginleşti.", 
+    name: "Mehmet A.", 
+    role: "8. sınıf velisi" 
+  },
+  { 
+    text: "İşitme hassasiyeti olan kızım için kişiselleştirilmiş egzersizler büyük rahatlık sağladı.", 
+    name: "Derya L.", 
+    role: "Lise velisi" 
+  },
+  { 
+    text: "Koçumuz haftalık geri bildirimlerle bizi çok iyi yönlendirdi; kaygı seviyesi düştü.", 
+    name: "Burcu E.", 
+    role: "11. sınıf velisi" 
+  },
+  { 
+    text: "Haftada iki seansla odaklanma süresi uzadı, ödevlere direnç azaldı.", 
+    name: "İlker S.", 
+    role: "4. sınıf velisi" 
+  },
+  { 
+    text: "Dikkat egzersizleri sonrası sınavda süre yönetimi çok iyileşti.", 
+    name: "Gizem Y.", 
+    role: "YKS velisi" 
+  },
+  { 
+    text: "Küçük yaşta başladık, el-göz koordinasyonu ve dil gelişimi hızlandı.", 
+    name: "Esra B.", 
+    role: "Okul öncesi velisi" 
+  },
+  { 
+    text: "Takip raporları sayesinde evde ne yapacağımızı net biliyoruz; süreç şeffaf.", 
+    name: "Hakan T.", 
+    role: "7. sınıf velisi" 
+  } 
 ];
 
 // 3. CONFIG
