@@ -36,12 +36,12 @@ var SITE_DATA = {
     "Ölçme - değerlendirme ve gözle görülür değişimler"
   ],
   faq: [
-    { q: "Çocuğum neden derslerde motivasyonsuz görünüyor?", a: "Sıklıkla başarısızlık korkusu, dikkat/ hafıza zayıflıkları veya ekran kaynaklı bilişsel yorgunluk rol oynar." },
-    { q: "İçsel ve dışsal motivasyon farkı ne?", a: "İçsel motivasyon merak ve öğrenme isteğinden, dışsal motivasyon ödül/not gibi etkenlerden gelir." },
-    { q: "İlkokula hazır mı, nasıl anlarım?", a: "Rutinleri takip edebilme, duygularını yönetme, kısa süre odaklanma temel göstergelerdir." },
-    { q: "Okula hazırlığa ne zaman başlamalıyım?", a: "Okul öncesi yıllar en verimli dönemdir." },
-    { q: "CognitiveMAP nedir?", a: "Beyin performans haritası çıkarır, kişiselleştirilmiş planı belirler." },
-    { q: "Utangaç çocuk okulda zorlanır mı?", a: "Zorunlu değil; sosyal rol oyunları ve duygu kelime hazinesi adaptasyonu hızlandırır." }
+    {"q": "Çocuğum neden derslerde motivasyonsuz görünüyor?", "a": "Sıklıkla başarısızlık korkusu, dikkat/ hafıza zayıflıkları veya ekran kaynaklı bilişsel yorgunluk rol oynar; önce kök nedeni görmek için bilişsel profil çıkarıyoruz."},
+    {"q": "İçsel ve dışsal motivasyon farkı ne?", "a": "İçsel motivasyon merak ve öğrenme isteğinden, dışsal motivasyon ödül/not gibi etkenlerden gelir; dengesi kalıcı başarı sağlar."},
+    {"q": "İlkokula hazır mı, nasıl anlarım?", "a": "Rutinleri takip edebilme, duygularını yönetme, kısa süre odaklanma ve akran iletişimi temel göstergelerdir; emin değilseniz CognitiveMAP ile netleştiriyoruz."},
+    {"q": "Okula hazırlığa ne zaman başlamalıyım?", "a": "Okul öncesi yıllar en verimli dönem; BrainFit Baby ve Scholar programları oyun temelli nöro-egzersizlerle temeli güçlendirir."},
+    {"q": "CognitiveMAP nedir?", "a": "Görsel, işitsel, dikkat-hafıza, sensori-motor ve duygu düzenleme alanlarında beyin performans haritası çıkarır, kişiselleştirilmiş planı belirler."},
+    {"q": "Utangaç çocuk okulda zorlanır mı?", "a": "Zorunlu değil; sosyal rol oyunları, hikâye anlatma ve duygu kelime hazinesi çalışmaları adaptasyonu hızlandırır."}
   ]
 };
 
