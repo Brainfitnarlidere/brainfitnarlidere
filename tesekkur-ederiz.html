@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teşekkür Ederiz | BrainFit Studio İzmir</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #fdfdfd;
+    }
+    .success-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 6vw;
+      text-align: center;
+    }
+    .success-card {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffff;
+      padding: 60px 40px;
+      border-radius: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+      border: 1px solid #f1f5f9;
+      animation: successPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes successPop {
+      0% { transform: scale(0.9) translateY(40px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      background: #f0fdf4;
+      color: #16a34a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      font-size: 48px;
+    }
+    .success-card h1 {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .success-card p {
+      font-size: 20px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .success-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    .back-link {
+      margin-top: 24px;
+      font-weight: 600;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: var(--primary);
+    }
+    header.simple-nav {
+      padding: 24px 6vw;
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: 600px) {
+      .success-card { padding: 40px 24px; }
+      .success-card h1 { font-size: 36px; }
+      .success-card p { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="simple-nav">
+    <div class="brand">
+        <a href="/">
+            <img src="./BF_Logo_CMYK.png" alt="BrainFit" height="42" />
+        </a>
+    </div>
+  </header>
+
+  <main class="success-container">
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <h1>Harika!</h1>
+      <p>Bilgileriniz bize başarıyla ulaştı. Uzman danışmanımız 48 saat içerisinde sizi arayarak randevunuzu planlayacaktır.</p>
+      
+      <div class="success-actions">
+        <a class="primary call-now-btn" href="tel:+905525528485">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="margin-right: 12px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Hemen Aramak İster Misiniz?
+        </a>
+        
+        <a href="/" class="back-link">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Ana Sayfaya Dön
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="background: transparent; border-top: none; justify-content: center;">
+    <p style="color: var(--muted); font-size: 14px;">© 2024 BrainFit Studio İzmir. Tüm hakları saklıdır.</p>
+  </footer>
+</body>
+</html>
